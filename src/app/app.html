@@ -1,0 +1,213 @@
+<header
+  class="sticky top-0 z-40 w-full border-b border-black/5 bg-white/80 backdrop-blur"
+>
+  <div
+    class="container flex h-16 items-center justify-between"
+    style="background-color: rgba(232, 223, 202, 1); padding: 0 40px"
+  >
+    <a
+      routerLink="/"
+      class="flex items-center gap-2 font-extrabold tracking-tight text-brand-dark"
+    >
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets%2F50dd6d1ff3874853aeda9539f8da9b65%2F24dc2912196744d2ab787f743360bfb2?format=webp&width=800"
+        alt="Duda logo"
+        class="h-10 w-10 rounded-full object-cover"
+      />
+      <span class="text-lg">Duda Bomboniere</span>
+    </a>
+    <nav class="hidden gap-6 text-sm font-medium text-brand-dark/80 sm:flex">
+      <a
+        routerLink="/"
+        routerLinkActive="text-brand-primary"
+        class="hover:text-brand-primary"
+        >Início</a
+      >
+      <a
+        routerLink="/cardapio"
+        routerLinkActive="text-brand-primary"
+        class="hover:text-brand-primary"
+        >Produtos</a
+      >
+      <a
+        routerLink="/sobre"
+        routerLinkActive="text-brand-primary"
+        class="hover:text-brand-primary"
+        >Sobre</a
+      >
+      <a
+        routerLink="/contato"
+        routerLinkActive="text-brand-primary"
+        class="hover:text-brand-primary"
+        >Contato</a
+      >
+      <a
+        href="https://www.instagram.com/dudabombonierie/"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-brand-primary"
+        >Instagram</a
+      >
+    </nav>
+    <!-- Mobile controls: hamburger + contact -->
+    <div class="sm:hidden relative">
+      <div class="flex items-center gap-2">
+        <button
+          (click)="toggleMenu()"
+          aria-label="Abrir menu"
+          class="p-2 rounded-md bg-white/80 shadow"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <a routerLink="/contato" class="btn-primary px-4 py-2 text-sm"
+          >Contato</a
+        >
+      </div>
+
+      <!-- Mobile dropdown (animated) -->
+      <div
+        class="absolute top-14 right-0 left-0 mx-4 bg-white rounded-md shadow-lg z-50 overflow-hidden mobile-menu"
+        [class.show]="menuOpen"
+        [attr.aria-hidden]="!menuOpen"
+      >
+        <a routerLink="/" (click)="closeMenu()" class="block px-4 py-3 border-b"
+          >Início</a
+        >
+        <a
+          routerLink="/cardapio"
+          (click)="closeMenu()"
+          class="block px-4 py-3 border-b"
+          >Produtos</a
+        >
+        <a
+          routerLink="/sobre"
+          (click)="closeMenu()"
+          class="block px-4 py-3 border-b"
+          >Sobre</a
+        >
+        <a routerLink="/contato" (click)="closeMenu()" class="block px-4 py-3"
+          >Contato</a
+        >
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer
+  class="mt-20 border-t border-black/5 py-12"
+  style="background-color: rgba(232, 223, 202, 1)"
+>
+  <div class="container grid gap-8 md:grid-cols-3">
+    <div class="space-y-3">
+      <div class="flex items-center gap-3">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2F50dd6d1ff3874853aeda9539f8da9b65%2F24dc2912196744d2ab787f743360bfb2?format=webp&width=200"
+          alt="Duda logo"
+          class="h-10 w-10 rounded-full object-cover"
+        />
+        <div>
+          <div class="text-lg font-extrabold text-brand-dark">
+            Duda Bombonierie – Itapuã
+          </div>
+          <div class="text-sm text-brand-dark/80 leading-relaxed">
+            Há mais de 20 anos adoçando momentos especiais com doces, salgados e
+            gelados preparados com carinho.
+          </div>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-brand-dark/80 leading-relaxed">
+        Visite-nos em Itapuã ou faça já o seu pedido pelo WhatsApp.
+      </p>
+      <div class="flex items-center gap-3">
+        <a
+          href="https://api.whatsapp.com/send?phone=557186806234&text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20um%20or%C3%A7amento!"
+          target="_blank"
+          rel="noopener"
+          class="btn-primary px-4 py-2"
+          >Pedir pelo WhatsApp</a
+        >
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <h3 class="text-sm font-semibold text-brand-dark">Endereço</h3>
+      <address class="not-italic text-sm text-brand-dark/80 leading-relaxed">
+        Praça Dorival Caymmi, 2<br />Itapuã, Salvador - BA, 41620-500
+      </address>
+
+      <h3 class="mt-4 text-sm font-semibold text-brand-dark">Horário</h3>
+      <div class="text-sm text-brand-dark/80 leading-relaxed">
+        Seg–Dom: 08:00 — 20:00 (sujeito a alterações)
+      </div>
+
+      <h3 class="mt-4 text-sm font-semibold text-brand-dark">Contato</h3>
+      <div class="text-sm text-brand-dark/80 leading-relaxed">
+        WhatsApp:
+        <a
+          class="text-brand-dark hover:underline"
+          href="https://api.whatsapp.com/send?phone=557186806234"
+          >(71) 8680-6234</a
+        >
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <h3 class="text-sm font-semibold text-brand-dark">Siga a Duda</h3>
+      <div class="flex items-center gap-3">
+        <a
+          href="https://www.instagram.com/dudabombonierie/"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 text-sm text-brand-dark hover:text-brand-900"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5z"
+            />
+          </svg>
+          <span>@dudabombonierie</span>
+        </a>
+      </div>
+
+      <h3 class="mt-6 text-sm font-semibold text-brand-dark">Navegação</h3>
+      <ul class="mt-2 space-y-2 text-sm text-brand-dark/80 leading-relaxed">
+        <li><a routerLink="/" class="hover:text-brand-900">Início</a></li>
+        <li>
+          <a routerLink="/cardapio" class="hover:text-brand-900">Produtos</a>
+        </li>
+        <li><a routerLink="/sobre" class="hover:text-brand-900">Sobre</a></li>
+        <li>
+          <a routerLink="/contato" class="hover:text-brand-900">Contato</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="container mt-8 border-t border-brand-200 pt-6 text-center text-sm text-brand-dark/80 leading-relaxed"
+  >
+    © {{ year }} Duda Bombonierie – Todos os direitos reservados.
+  </div>
+</footer>

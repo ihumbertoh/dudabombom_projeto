@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-brand-cream text-brand-dark;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full font-semibold transition-colors transition-transform duration-200 transform focus:outline-none focus-visible:ring-1 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed border border-transparent;
+  }
+  .btn-primary {
+    /* softer yellow background with darker text for contrast */
+    @apply btn bg-brand-500 text-brand-onPrimary hover:bg-brand-600 focus:ring-brand-700 shadow-none hover:shadow-sm hover:scale-105;
+  }
+  .btn-secondary {
+    @apply btn bg-brand-dark text-white hover:bg-neutral-800 focus:ring-brand-dark shadow-none hover:shadow-sm hover:-translate-y-0.5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-sm text-brand-700 shadow;
+  }
+  .brand-accent-bg {
+    @apply bg-brand-100;
+  }
+
+  /* Timeline animations */
+  .timeline-item {
+    @apply opacity-0 translate-y-4 scale-95 transition-all duration-700 ease-out;
+  }
+  .timeline-item.in-view {
+    @apply opacity-100 translate-y-0 scale-100 ring-2 ring-white/5 shadow-lg;
+  }
+}

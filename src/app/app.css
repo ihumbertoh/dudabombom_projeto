@@ -1,0 +1,21 @@
+/* Mobile dropdown animation */
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    max-height 300ms ease,
+    opacity 300ms ease,
+    transform 300ms ease;
+  overflow: hidden;
+}
+.mobile-menu.show {
+  max-height: 400px; /* enough to fit menu items */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* small visual polish */
+.mobile-menu a {
+  display: block;
+}
